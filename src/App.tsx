@@ -1,15 +1,21 @@
-import "./App.css";
+import { FC, lazy } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout/Layout";
+// import "./App.css";
 
-function App() {
+const AllTasks = lazy(() => import("./pages/AllTasks/AllTasks"));
+const DeletedTasks = lazy(() => import("./pages/DeletedTasks/DeletedTasks"));
+
+const App: FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<AllTasks />} />
+        <Route path="deleted" element={<DeletedTasks />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Route>
+    </Routes>
   );
-}
+};
 
 export default App;
