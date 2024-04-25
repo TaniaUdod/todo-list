@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Task } from "../../types/types";
 import { toggleTaskDeleted } from "../../store/tasksSlice";
 import toast from "react-hot-toast";
+import css from "./TodoItem.module.scss";
 
 interface TodoItemProps {
   task: Task;
@@ -24,12 +25,16 @@ const TodoItem: FC<TodoItemProps> = ({ task, onRestore }) => {
   };
 
   return (
-    <li>
+    <li className={css["todo-item"]}>
       <span>{task.title}</span>
       {onRestore ? (
-        <button onClick={handleRestore}>Restore</button>
+        <button onClick={handleRestore} className={css.restore}>
+          Restore
+        </button>
       ) : (
-        <button onClick={handleDelete}>Delete</button>
+        <button onClick={handleDelete} className={css.delete}>
+          Delete
+        </button>
       )}
     </li>
   );

@@ -1,7 +1,6 @@
 import { FC, lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
-// import "./App.css";
 
 const AllTasks = lazy(() => import("./pages/AllTasks/AllTasks"));
 const DeletedTasks = lazy(() => import("./pages/DeletedTasks/DeletedTasks"));

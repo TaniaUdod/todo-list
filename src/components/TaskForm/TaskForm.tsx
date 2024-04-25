@@ -2,6 +2,7 @@ import { FC, FormEvent, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Task } from "../../types/types";
 import toast from "react-hot-toast";
+import css from "./TaskForm.module.scss";
 
 interface TaskFormProps {
   onSubmit: (task: Task) => void;
@@ -26,10 +27,11 @@ const TaskForm: FC<TaskFormProps> = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={css.form}>
       <input
         type="text"
         value={title}
+        placeholder="Enter your task..."
         onChange={(event) => setTitle(event.target.value)}
       />
       <button type="submit">Add Task</button>
