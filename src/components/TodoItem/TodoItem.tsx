@@ -2,6 +2,7 @@ import { FC } from "react";
 import { useDispatch } from "react-redux";
 import { Task } from "../../types/types";
 import { toggleTaskDeleted } from "../../store/tasksSlice";
+import toast from "react-hot-toast";
 
 interface TodoItemProps {
   task: Task;
@@ -13,6 +14,7 @@ const TodoItem: FC<TodoItemProps> = ({ task, onRestore }) => {
 
   const handleDelete = () => {
     dispatch(toggleTaskDeleted(task.id));
+    toast.success("Task deleted successfully");
   };
 
   const handleRestore = () => {

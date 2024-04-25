@@ -3,6 +3,7 @@ import { useAppSelector } from "../../store/hooks";
 import TodoItem from "../TodoItem/TodoItem";
 import { selectItems, selectDeletedTasks } from "../../store/selectors";
 import { Task } from "../../types/types";
+import toast from "react-hot-toast";
 
 interface TodoListProps {
   deleted?: boolean;
@@ -15,6 +16,7 @@ const TodoList: FC<TodoListProps> = ({ deleted = false, onRestore }) => {
   const handleRestore = (taskId: string) => {
     if (onRestore) {
       onRestore(taskId);
+      toast.success("Task restored successfully");
     }
   };
 

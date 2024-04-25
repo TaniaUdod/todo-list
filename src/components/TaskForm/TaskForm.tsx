@@ -1,6 +1,7 @@
 import { FC, FormEvent, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Task } from "../../types/types";
+import toast from "react-hot-toast";
 
 interface TaskFormProps {
   onSubmit: (task: Task) => void;
@@ -20,6 +21,7 @@ const TaskForm: FC<TaskFormProps> = ({ onSubmit }) => {
 
       onSubmit(newTask);
       setTitle("");
+      toast.success("Task added successfully");
     }
   };
 
