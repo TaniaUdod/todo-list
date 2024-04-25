@@ -1,22 +1,31 @@
 import { FC } from "react";
-import { RootState } from "../../store/store";
 import { useAppSelector } from "../../store/hooks";
-import { selectFilteredTasks } from "../../store/selectors";
 import TodoItem from "../TodoItem/TodoItem";
+import { selectItems, selectDeletedTasks } from "../../store/selectors";
+import { Task } from "../../types/types";
 
 interface TodoListProps {
   deleted?: boolean;
+  onRestore?: (taskId: string) => void;
 }
 
-const TodoList: FC<TodoListProps> = ({ deleted = false }) => {
-  const tasks = useAppSelector((state: RootState) =>
-    selectFilteredTasks(state, deleted)
-  );
+const TodoList: FC<TodoListProps> = ({ deleted = false, onRestore }) => {
+  const tasks = useAppSelector(deleted ? selectDeletedTasks : selectItems);
+
+  const handleRestore = (taskId: string) => {
+    if (onRestore) {
+      onRestore(taskId);
+    }
+  };
 
   return (
     <ul>
-      {tasks.map((task) => (
-        <TodoItem key={task.id} task={task} />
+      {tasks.map((task: Task) => (
+        <TodoItem
+          key={task.id}
+          task={task}
+          onRestore={deleted ? () => handleRestore(task.id) : undefined}
+        />
       ))}
     </ul>
   );

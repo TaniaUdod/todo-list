@@ -16,7 +16,6 @@ const TaskForm: FC<TaskFormProps> = ({ onSubmit }) => {
       const newTask: Task = {
         id: uuidv4(),
         title: title,
-        deleted: false,
       };
 
       onSubmit(newTask);
