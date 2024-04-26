@@ -10,12 +10,12 @@ This project is a to-do list application, that allows users to manage their task
 
 ## Technologies Used
 
-**React** to build the user interface and manage components efficiently.
-**TypeScript** for static typing and enhanced code quality.
-**React Router** for navigation, enabling users to switch between different views of their tasks seamlessly.
-**Redux** for state management, providing a centralized store for tasks and facilitating efficient data management.
-**Redux Persist** to persist the Redux store data to the browser's local storage, ensuring data persistence across sessions.
-**CSS/SCSS** for styling the application, ensuring a visually appealing design.
+- **React** to build the user interface and manage components efficiently.
+- **TypeScript** for static typing and enhanced code quality.
+- **React Router** for navigation, enabling users to switch between different views of their tasks seamlessly.
+- **Redux** for state management, providing a centralized store for tasks and facilitating efficient data management.
+- **Redux Persist** to persist the Redux store data to the browser's local storage, ensuring data persistence across sessions.
+- **CSS/SCSS** for styling the application, ensuring a visually appealing design.
 
 ## Getting Started
 

@@ -17,7 +17,7 @@ const TodoItem: FC<TodoItemProps> = ({ task, onRestore }) => {
 
   const handleDelete = () => {
     dispatch(toggleTaskDeleted(task.id));
-    toast.success("Task deleted successfully");
+    toast.success("Task deleted successfully", { position: "top-right" });
   };
 
   const handleRestore = () => {
@@ -32,6 +32,7 @@ const TodoItem: FC<TodoItemProps> = ({ task, onRestore }) => {
 
   const handleSaveEdit = (updatedTask: Task) => {
     dispatch(updateTask(updatedTask));
+    toast.success("Task updated successfully", { position: "top-right" });
     setIsEditing(false);
   };
 

@@ -16,7 +16,7 @@ const TodoList: FC<TodoListProps> = ({ deleted = false, onRestore }) => {
   const handleRestore = (taskId: string) => {
     if (onRestore) {
       onRestore(taskId);
-      toast.success("Task restored successfully");
+      toast.success("Task restored successfully", { position: "top-right" });
     }
   };
 

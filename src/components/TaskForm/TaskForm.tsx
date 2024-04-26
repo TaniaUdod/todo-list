@@ -22,7 +22,7 @@ const TaskForm: FC<TaskFormProps> = ({ onSubmit }) => {
 
       onSubmit(newTask);
       setTitle("");
-      toast.success("Task added successfully");
+      toast.success("Task added successfully", { position: "top-right" });
     }
   };
 
