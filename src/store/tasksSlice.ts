@@ -18,6 +18,7 @@ const tasksSlice = createSlice({
     addTask(state, action: PayloadAction<Task>) {
       state.items.push(action.payload);
     },
+
     toggleTaskDeleted(state, action: PayloadAction<string>) {
       const taskToDelete = state.items.find(
         (task) => task.id === action.payload
@@ -37,8 +38,16 @@ const tasksSlice = createSlice({
         }
       }
     },
+
+    updateTask(state, action: PayloadAction<Task>) {
+      const { id } = action.payload;
+      const existingTaskIndex = state.items.findIndex((item) => item.id === id);
+      if (existingTaskIndex !== -1) {
+        state.items[existingTaskIndex] = action.payload;
+      }
+    },
   },
 });
 
-export const { addTask, toggleTaskDeleted } = tasksSlice.actions;
+export const { addTask, toggleTaskDeleted, updateTask } = tasksSlice.actions;
 export default tasksSlice.reducer;

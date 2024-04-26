@@ -1,0 +1,35 @@
+.form-edit {
+  display: flex;
+  width: 100%;
+
+  input {
+    padding: 0 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+  }
+
+  button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+
+    &.save {
+      background-color: #66cc66;
+      color: #fff;
+
+      &:hover {
+        background-color: #25a825;
+      }
+    }
+
+    &.cancel {
+      background-color: #ff6666;
+      color: #fff;
+
+      &:hover {
+        background-color: #f01212;
+      }
+    }
+  }
+}
