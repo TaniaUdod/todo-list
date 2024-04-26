@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { useDispatch } from "react-redux";
-import { Task } from "../../types/types";
+import { useAppDispatch } from "../../store/hooks";
 import { toggleTaskDeleted } from "../../store/tasksSlice";
+import { Task } from "../../types/types";
 import toast from "react-hot-toast";
 import css from "./TodoItem.module.scss";
 
@@ -11,7 +11,7 @@ interface TodoItemProps {
 }
 
 const TodoItem: FC<TodoItemProps> = ({ task, onRestore }) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleDelete = () => {
     dispatch(toggleTaskDeleted(task.id));
